@@ -1,8 +1,11 @@
 package cas_service.casService.mapper;
 
+import org.springframework.stereotype.Component;
+
 import cas_service.casService.dto.CustomerDto;
 import cas_service.casService.entity.Customer;
 
+@Component
 public class CustomerMapper {
 	
 	
