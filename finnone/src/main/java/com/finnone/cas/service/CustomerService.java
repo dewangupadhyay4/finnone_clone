@@ -8,6 +8,8 @@ import com.finnone.cas.entity.Customer;
 import com.finnone.cas.mapper.CustomerMapper;
 import com.finnone.cas.repo.CustomerRepo;
 
+import lombok.NoArgsConstructor;
+
 @Service
 public class CustomerService {
 
@@ -20,7 +22,11 @@ public class CustomerService {
 	public CustomerDto createCustomer(CustomerDto customerDto) {
 		Customer customer=customerMapper.toEntity(customerDto);
 		Customer saved=customerRepo.save(customer);
-		return customerMapper.toDto(saved);
+		String applicationNumber="APPL"+String.format("%05d", customer.getId());
+		saved.setApplicationNumber(applicationNumber);
+		
+		Customer finalSaved=customerRepo.save(customer);
+		return customerMapper.toDto(finalSaved);
 	}
 	
 }

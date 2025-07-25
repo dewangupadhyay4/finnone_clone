@@ -15,5 +15,5 @@ public class CustomerDto {
 	private String email;
 	private String phone;
 	private String panCard;
-	
+	private String applicationNumber;
 }
